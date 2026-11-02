@@ -1,5 +1,5 @@
 self.PLAN={
- "version": 2,
+ "version": 3,
  "title": "Knee + Weight Loss",
  "startDate": "2026-11-02",
  "weeks": 4,
