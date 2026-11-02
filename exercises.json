@@ -1,5 +1,5 @@
 {
- "version": 4,
+ "version": 5,
  "title": "Knee + Weight Loss",
  "startDate": "2026-11-02",
  "weeks": 4,
@@ -80,7 +80,7 @@
    "id": "adduct",
    "name": "Machine hip adduction",
    "weighted": true,
-   "desc": "Sit upright, bring the pads together slowly and control the return. Strengthens the inner thigh, which helps keep the knee stable. Replaces the banded lateral walk.",
+   "desc": "Sit upright, bring the pads together slowly and control the return. Strengthens the inner thigh, which helps keep the knee stable.",
    "weeks": [
     "2 x 12",
     "3 x 12",
@@ -296,7 +296,7 @@
    "id": "ctke",
    "name": "Cable terminal knee extension",
    "weighted": true,
-   "desc": "Cable at knee height behind you with an ankle strap or handle held at the thigh, knee slightly bent, straighten fully and squeeze the quad. Light weight. Replaces the band version.",
+   "desc": "Cable at knee height behind you with an ankle strap or handle held at the thigh, knee slightly bent, straighten fully and squeeze the quad. Light weight.",
    "weeks": [
     "2 x 15",
     "3 x 15",
@@ -354,26 +354,34 @@
   },
   {
    "id": "zone2",
-   "name": "Steady bike, Zone 2",
+   "name": "Steady cardio, Zone 2",
    "weighted": false,
-   "desc": "Conversational pace (about 60-70% max heart rate). Burns calories with no knee impact.",
+   "desc": "Pick bike or elliptical from the dropdown. Conversational pace (about 60-70% max heart rate). Burns calories with no knee impact.",
    "weeks": [
     "30 min",
     "35 min",
     "40 min",
     "45 min"
+   ],
+   "options": [
+    "Stationary bike",
+    "Elliptical"
    ]
   },
   {
    "id": "intervals",
-   "name": "Intervals: bike or cross-trainer (1 min hard / 2 easy)",
+   "name": "Interval cardio (1 min hard / 2 min easy)",
    "weighted": false,
-   "desc": "After a 3-5 min warm-up, alternate 1 min hard (effort 7-8/10) with 2 min easy. Keep resistance moderate.",
+   "desc": "Pick bike or elliptical from the dropdown. After a 3-5 min warm-up, alternate 1 min hard (effort 7-8/10) with 2 min easy. Keep resistance moderate.",
    "weeks": [
     "20 min",
     "24 min",
     "27 min",
     "30 min"
+   ],
+   "options": [
+    "Stationary bike",
+    "Elliptical"
    ]
   },
   {
@@ -390,14 +398,19 @@
   },
   {
    "id": "incline",
-   "name": "Incline treadmill walk 5-8% (or swim / elliptical)",
+   "name": "Long low-impact cardio",
    "weighted": false,
-   "desc": "Brisk incline walk, no handrails, short stride. Swim or elliptical alternative.",
+   "desc": "Pick your machine from the dropdown. Treadmill: incline 5-8%, no handrails, short stride. Bike or elliptical at a steady conversational pace.",
    "weeks": [
     "40 min",
     "45 min",
     "50 min",
     "60 min"
+   ],
+   "options": [
+    "Incline treadmill walk",
+    "Stationary bike",
+    "Elliptical"
    ]
   },
   {

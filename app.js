@@ -16,11 +16,13 @@ function dateOf(w,d){const t=new Date(start);t.setDate(t.getDate()+(w-1)*7+d);re
 function info(id){$("mt").textContent=ex[id].name;$("md").textContent=ex[id].desc;$("modal").style.display="flex"}
 function getSets(r){if(!r)return[];if(r.sets)return r.sets;if(r.kg!==undefined||r.act!==undefined)return[{kg:r.kg||"",act:r.act||""}];return[]}
 const has=r=>getSets(r).some(s=>s.kg||s.act);
-function last(id,cur){for(let i=cur-1;i>=0;i--){const w=Math.floor(i/7)+1,d=i%7;if(P.days[d].exercises.includes(id)){const r=S[ek(w,d,id)];if(has(r))return getSets(r)}}return null}
+function lastRec(id,cur){for(let i=cur-1;i>=0;i--){const w=Math.floor(i/7)+1,d=i%7;if(P.days[d].exercises.includes(id)){const r=S[ek(w,d,id)];if(has(r))return r}}return null}
+const last=(id,cur)=>{const r=lastRec(id,cur);return r?getSets(r):null};
 const fmtSet=(s,wt)=>(wt&&s.kg?s.kg+" kg":"")+(wt&&s.kg&&s.act?" x ":"")+(s.act||"");
 function sesDur(w,d){const s=S[sk(w,d)];if(!s)return 0;if(s.manual!==undefined&&s.manual!=="")return +s.manual*60;return s.start?((s.end||Date.now())-s.start)/1000:0}
 function tabs(){$("tabs").innerHTML="";P.days.forEach((d,i)=>{const b=document.createElement("button"),f=S[fk(wk,i)];b.className="tab"+(i==di?" on":"")+(f?" fin":"");b.textContent=d.day.slice(0,3)+(f?" \u2713":"");b.onclick=()=>{di=i;draw()};$("tabs").appendChild(b)})}
 function collect(c){const o=[];c.querySelectorAll("[data-s]").forEach(i=>{if(!i.dataset.f)return;const n=+i.dataset.s;o[n]=o[n]||{kg:"",act:""};o[n][i.dataset.f]=i.value});return o}
+function rec(c){const o={sets:collect(c)},s=c.querySelector(".opt");if(s)o.choice=s.value;return o}
 function sesCard(m,fin){const k=sk(wk,di),s=S[k]||{},c=document.createElement("div");c.className="card";
 const run=s.start&&!s.end;
 c.innerHTML='<b>Workout timer</b><div class="big" id="sl">'+mmss(sesDur(wk,di))+'</div>'+
@@ -33,28 +35,29 @@ $("rs").onclick=()=>{if(confirm("Reset the workout timer for this day?")){delete
 function plan(m){const d=P.days[di],cur=(wk-1)*7+di,fin=!!S[fk(wk,di)];
 m.innerHTML="<h2>"+d.day+" "+dateOf(wk,di)+"<br><small>"+d.session+"</small></h2>"+(fin?'<div class="banner">Day finished. Tap Edit to change entries.</div>':"");
 sesCard(m,fin);
-d.exercises.forEach(id=>{const e=ex[id],t=e.weeks[wk-1],n=nSets(t),tm=isTime(t),unit=/sec/.test(t)?"sec":"min",saved=getSets(S[ek(wk,di,id)]),l=last(id,cur);
+d.exercises.forEach(id=>{const e=ex[id],t=e.weeks[wk-1],n=nSets(t),tm=isTime(t),unit=/sec/.test(t)?"sec":"min",sr=S[ek(wk,di,id)],saved=getSets(sr),lr=lastRec(id,cur),l=lr?getSets(lr):null;
 const c=document.createElement("div");c.className="card";
 let h="<h3>"+e.name+'</h3><div class="tgt">Target: '+t+' (tap name for how-to)</div>';
-if(l)h+='<div class="last">Last time: '+l.map((s,i)=>"S"+(i+1)+" "+fmtSet(s,e.weighted)).join(" | ")+"</div>";
+if(e.options){const ch=(sr&&sr.choice)||(lr&&lr.choice)||e.options[0];h+='<select class="opt"'+(fin?" disabled":"")+">"+e.options.map(o=>'<option'+(o==ch?" selected":"")+">"+o+"</option>").join("")+"</select>"}
+if(l)h+='<div class="last">Last time: '+(lr.choice?lr.choice+" - ":"")+l.map((s,i)=>"S"+(i+1)+" "+fmtSet(s,e.weighted)).join(" | ")+"</div>";
 for(let i=0;i<n;i++){const sv=saved[i],lv=l?(l[i]||l[l.length-1]):null,kv=sv?sv.kg:(lv?lv.kg:""),av=sv?sv.act:(lv?lv.act:""),tk=ek(wk,di,id)+"-"+i;
 const cols="44px"+(e.weighted?" 1fr":"")+" 1fr"+(tm?" auto auto":"");
 h+='<div class="sr" style="grid-template-columns:'+cols+'"><span>Set '+(n>1?(i+1):"")+"</span>"+(e.weighted?'<input data-s="'+i+'" data-f="kg" type="number" inputmode="decimal" step="0.5" placeholder="kg" value="'+(kv||"")+'"'+(fin?" disabled":"")+">":"")+
 '<input data-s="'+i+'" data-f="act" placeholder="'+(tm?"time ("+unit+")":"reps")+'" value="'+(av||"")+'"'+(fin?" disabled":"")+">"+
 (tm?'<button class="tb" data-tk="'+tk+'" data-s="'+i+'" data-u="'+unit+'"'+(fin?" disabled":"")+'>Start</button><button class="cx" title="Cancel timer">\u2715</button>':"")+"</div>"}
 c.innerHTML=h;c.querySelector("h3").onclick=()=>info(id);
-c.querySelectorAll("input[data-f]").forEach(i=>i.onchange=()=>{S[ek(wk,di,id)]={sets:collect(c)};save()});
+c.querySelectorAll("input[data-f],.opt").forEach(i=>i.onchange=()=>{S[ek(wk,di,id)]=rec(c);save()});
 c.querySelectorAll(".tb").forEach(b=>{b.onclick=()=>{const tk=b.dataset.tk;if(!T[tk]){T[tk]=Date.now()}else{const el=(Date.now()-T[tk])/1000;delete T[tk];const inp=c.querySelector('input[data-s="'+b.dataset.s+'"][data-f="act"]');inp.value=b.dataset.u=="min"?(el/60).toFixed(1):Math.round(el);inp.dispatchEvent(new Event("change"))}saveT();refreshT()};
 b.nextElementSibling.onclick=()=>{delete T[b.dataset.tk];saveT();refreshT()}});
 m.appendChild(c)});
 const b=document.createElement("button");b.className="b "+(fin?"ed":"ok");b.textContent=fin?"Edit this day":"Finished - submit day";
-b.onclick=()=>{if(fin){delete S[fk(wk,di)]}else{const s=S[sk(wk,di)];if(s&&s.start&&!s.end)s.end=Date.now();m.querySelectorAll(".card").forEach((c,k)=>{if(k>0)S[ek(wk,di,d.exercises[k-1])]={sets:collect(c)}});S[fk(wk,di)]=new Date().toISOString()}save();draw()};
+b.onclick=()=>{if(fin){delete S[fk(wk,di)]}else{const s=S[sk(wk,di)];if(s&&s.start&&!s.end)s.end=Date.now();m.querySelectorAll(".card").forEach((c,k)=>{if(k>0)S[ek(wk,di,d.exercises[k-1])]=rec(c)});S[fk(wk,di)]=new Date().toISOString()}save();draw()};
 m.appendChild(b)}
 function refreshT(){document.querySelectorAll(".tb").forEach(b=>{const t0=T[b.dataset.tk];if(t0){b.textContent="Stop "+mmss((Date.now()-t0)/1000);b.classList.add("run")}else{b.textContent="Start";b.classList.remove("run")}b.nextElementSibling.style.display=t0?"inline-block":"none"});
 const sl=$("sl");if(sl&&$("view").value=="plan")sl.textContent=mmss(sesDur(wk,di))}
 setInterval(refreshT,1000);
 function val(id,r){const s=getSets(r),e=ex[id];const v=s.map(q=>e.weighted&&q.kg!==""&&q.kg!==undefined?+q.kg:parseFloat(String(q.act||"").match(/[\d.]+/))).filter(q=>!isNaN(q));return v.length?Math.max(...v):null}
-function series(id){const o=[];for(let w=1;w<=P.weeks;w++)for(let d=0;d<7;d++)if(P.days[d].exercises.includes(id)){const r=S[ek(w,d,id)];if(r){const v=val(id,r);if(v!==null)o.push({lab:"W"+w+" "+P.days[d].day.slice(0,3),y:v,date:dateOf(w,d),sets:getSets(r)})}}return o}
+function series(id){const o=[];for(let w=1;w<=P.weeks;w++)for(let d=0;d<7;d++)if(P.days[d].exercises.includes(id)){const r=S[ek(w,d,id)];if(r){const v=val(id,r);if(v!==null)o.push({lab:"W"+w+" "+P.days[d].day.slice(0,3),y:v,date:dateOf(w,d),sets:getSets(r),choice:r.choice||""})}}return o}
 function chart(cv,pts,title,unit){const dpr=window.devicePixelRatio||1,W=cv.clientWidth,H=240;cv.width=W*dpr;cv.height=H*dpr;const g=cv.getContext("2d");g.scale(dpr,dpr);g.clearRect(0,0,W,H);
 g.fillStyle="#1F4E78";g.font="bold 13px sans-serif";g.fillText(title+(unit?" ("+unit+")":""),10,18);
 if(!pts.length){g.fillStyle="#888";g.font="13px sans-serif";g.fillText("No data yet. Finish a workout to see progress.",10,H/2);return}
@@ -69,7 +72,7 @@ function prog(m){m.innerHTML='<h2>Progress</h2><select id="ps" style="width:100%
 P.exercises.forEach(e=>$("ps").add(new Option(e.name,e.id)));$("ps").value=pex;
 const go=()=>{pex=$("ps").value;const e=ex[pex],s=series(pex),t=e.weeks[0];
 chart($("c1"),s,e.name+" (best set)",e.weighted?"kg":(isTime(t)?(/sec/.test(t)?"sec":"min"):"reps"));
-$("tb").innerHTML=s.length?"<table><tr><th>Date</th><th>Session</th><th>Sets</th></tr>"+s.map(p=>"<tr><td>"+p.date+"</td><td>"+p.lab+"</td><td>"+p.sets.map(q=>fmtSet(q,e.weighted)).join(" | ")+"</td></tr>").join("")+"</table>":"";};
+$("tb").innerHTML=s.length?"<table><tr><th>Date</th><th>Session</th><th>Sets</th></tr>"+s.map(p=>"<tr><td>"+p.date+"</td><td>"+p.lab+"</td><td>"+(p.choice?p.choice+": ":"")+p.sets.map(q=>fmtSet(q,e.weighted)).join(" | ")+"</td></tr>").join("")+"</table>":"";};
 $("ps").onchange=go;go();
 const b=[];for(let w=0;w<=P.weeks;w++){const r=S["body-"+w];if(r&&r.kg)b.push({lab:w?"Wk"+w:"Start",y:+r.kg})}chart($("c2"),b,"Body weight","kg");
 const f=[];for(let w=1;w<=P.weeks;w++){let n=0;for(let d=0;d<7;d++)if(S[fk(w,d)])n++;f.push({lab:"Wk"+w,y:n})}chart($("c3"),f,"Days finished per week","days");
@@ -80,8 +83,8 @@ c.innerHTML="<b>"+(w?"End of week "+w:"Start")+'</b><div class="f"><div><label>W
 c.querySelectorAll("[data-f]").forEach(i=>i.onchange=()=>{S[k]=S[k]||{};S[k][i.dataset.f]=i.value;save()});m.appendChild(c)}}
 function dl(n,t,mime){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([t],{type:mime}));a.download=n;a.click()}
 function data(m){m.innerHTML='<div class="card"><h3>Backup and export</h3><button class="b" id="csv">Export CSV</button><button class="b" id="exp">Export backup</button><button class="b" id="imp">Import backup</button><input type="file" id="fi" hidden></div>';
-$("csv").onclick=()=>{let o=[["Week","Date","Day","Session","Workout min","Exercise","Target","Set","Weight kg","Reps/time done","Day finished"]];
-for(let w=1;w<=P.weeks;w++)P.days.forEach((d,i)=>d.exercises.forEach(id=>{const s=getSets(S[ek(w,i,id)]);const n=Math.max(s.length,1);for(let k=0;k<n;k++){const q=s[k]||{};o.push([w,dateOf(w,i),d.day,d.session,(sesDur(w,i)/60).toFixed(1),ex[id].name,ex[id].weeks[w-1],k+1,ex[id].weighted?(q.kg||""):"",q.act||"",S[fk(w,i)]?"yes":""])}}));
+$("csv").onclick=()=>{let o=[["Week","Date","Day","Session","Workout min","Exercise","Equipment","Target","Set","Weight kg","Reps/time done","Day finished"]];
+for(let w=1;w<=P.weeks;w++)P.days.forEach((d,i)=>d.exercises.forEach(id=>{const r=S[ek(w,i,id)],s=getSets(r);const n=Math.max(s.length,1);for(let k=0;k<n;k++){const q=s[k]||{};o.push([w,dateOf(w,i),d.day,d.session,(sesDur(w,i)/60).toFixed(1),ex[id].name,(r&&r.choice)||"",ex[id].weeks[w-1],k+1,ex[id].weighted?(q.kg||""):"",q.act||"",S[fk(w,i)]?"yes":""])}}));
 dl("kneefit_log.csv",o.map(r=>r.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(",")).join("\n"),"text/csv")};
 $("exp").onclick=()=>dl("kneefit_backup.json",JSON.stringify(S),"application/json");
 $("imp").onclick=()=>$("fi").click();$("fi").onchange=e=>{const r=new FileReader();r.onload=()=>{S=JSON.parse(r.result);save();alert("Imported");draw()};r.readAsText(e.target.files[0])}}
