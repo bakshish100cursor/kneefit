@@ -1,5 +1,5 @@
 {
- "version": 3,
+ "version": 4,
  "title": "Knee + Weight Loss",
  "startDate": "2026-11-02",
  "weeks": 4,
@@ -77,15 +77,15 @@
    ]
   },
   {
-   "id": "latwalk",
-   "name": "Banded lateral walk",
-   "weighted": false,
-   "desc": "Band above the knees, slight quarter-squat, step sideways without letting the knees cave in. Builds glute medius for knee alignment.",
+   "id": "adduct",
+   "name": "Machine hip adduction",
+   "weighted": true,
+   "desc": "Sit upright, bring the pads together slowly and control the return. Strengthens the inner thigh, which helps keep the knee stable. Replaces the banded lateral walk.",
    "weeks": [
-    "2 x 10 steps each way",
-    "3 x 10 steps each way",
-    "3 x 12 steps each way",
-    "3 x 15 steps each way"
+    "2 x 12",
+    "3 x 12",
+    "3 x 15",
+    "3 x 15"
    ]
   },
   {
@@ -104,7 +104,7 @@
    "id": "plank",
    "name": "Front plank",
    "weighted": false,
-   "desc": "Forearms and toes, straight line, ribs down, glutes squeezed. Core endurance protects the lower back.",
+   "desc": "Forearms and toes, straight line, ribs down, glutes squeezed. Core endurance protects the lower back. Use the Start/Stop timer.",
    "weeks": [
     "2 x 20 sec",
     "3 x 20 sec",
@@ -224,7 +224,7 @@
    "id": "sideplank",
    "name": "Side plank (each side)",
    "weighted": false,
-   "desc": "Forearm under shoulder, hips lifted in a line. Bend the knees if needed.",
+   "desc": "Forearm under shoulder, hips lifted in a line. Bend the knees if needed. Use the Start/Stop timer per side.",
    "weeks": [
     "2 x 15 sec",
     "3 x 15 sec",
@@ -293,10 +293,10 @@
    ]
   },
   {
-   "id": "tke",
-   "name": "Band terminal knee extension",
-   "weighted": false,
-   "desc": "Band behind the knee anchored to a rack, knee slightly bent, straighten fully and squeeze the quad.",
+   "id": "ctke",
+   "name": "Cable terminal knee extension",
+   "weighted": true,
+   "desc": "Cable at knee height behind you with an ankle strap or handle held at the thigh, knee slightly bent, straighten fully and squeeze the quad. Light weight. Replaces the band version.",
    "weeks": [
     "2 x 15",
     "3 x 15",
@@ -320,7 +320,7 @@
    "id": "wallsit",
    "name": "Wall sit (knees ~60-70 deg)",
    "weighted": false,
-   "desc": "Back flat on the wall, thighs about 60-70 degrees from straight. Gentle static quad hold.",
+   "desc": "Back flat on the wall, thighs about 60-70 degrees from straight. Gentle static quad hold. Use the Start/Stop timer.",
    "weeks": [
     "2 x 20 sec",
     "3 x 20 sec",
@@ -421,10 +421,10 @@
     "bike_wu",
     "goblet",
     "legpress",
-    "legext",
-    "legcurl",
     "stepup",
-    "latwalk",
+    "legcurl",
+    "legext",
+    "adduct",
     "calf",
     "plank"
    ]
@@ -441,13 +441,13 @@
    "session": "Strength B: Upper / Core",
    "exercises": [
     "row_wu",
-    "csrow",
     "incpress",
-    "lat",
+    "csrow",
     "sp",
+    "lat",
     "face",
-    "tri",
     "curl",
+    "tri",
     "deadbug",
     "sideplank",
     "pallof"
@@ -466,15 +466,15 @@
    "session": "Strength C: Hips / Knee Stability",
    "exercises": [
     "bike_wu",
-    "abd",
     "bridge",
     "split",
     "splp",
-    "tke",
     "scrow",
+    "abd",
+    "ctke",
+    "farmer",
     "wallsit",
-    "bird",
-    "farmer"
+    "bird"
    ]
   },
   {
