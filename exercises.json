@@ -1,0 +1,495 @@
+{
+ "version": 2,
+ "title": "Knee + Weight Loss",
+ "startDate": "2026-11-02",
+ "weeks": 4,
+ "exercises": [
+  {
+   "id": "bike_wu",
+   "name": "Stationary bike warm-up",
+   "weighted": false,
+   "desc": "Seat height so the knee keeps a slight bend at the bottom. Low resistance, smooth circles. Warms the joint and primes the quads without impact.",
+   "weeks": [
+    "5 min easy",
+    "5 min easy",
+    "5 min easy",
+    "5 min easy"
+   ]
+  },
+  {
+   "id": "goblet",
+   "name": "Goblet box squat to bench",
+   "weighted": true,
+   "desc": "Hold one dumbbell at the chest, sit back to a bench at about knee height, pause lightly, stand. Knee tracks over the 2nd toe, torso upright to spare the lower back.",
+   "weeks": [
+    "2 x 10",
+    "3 x 10",
+    "3 x 12",
+    "3 x 12"
+   ]
+  },
+  {
+   "id": "legpress",
+   "name": "Leg press (back supported, 0-90 deg)",
+   "weighted": true,
+   "desc": "Back and hips pressed into the pad. Lower to about 90 degrees only; do not let the pelvis curl under. Press through the whole foot.",
+   "weeks": [
+    "2 x 12",
+    "3 x 12",
+    "3 x 12",
+    "4 x 12"
+   ]
+  },
+  {
+   "id": "legext",
+   "name": "Seated leg extension",
+   "weighted": true,
+   "desc": "Slow: 2 sec up, 3 sec down, in a comfortable range. Moderate weight. Builds the quadriceps that support the knee.",
+   "weeks": [
+    "2 x 12",
+    "3 x 12",
+    "3 x 15",
+    "3 x 15"
+   ]
+  },
+  {
+   "id": "legcurl",
+   "name": "Seated leg curl",
+   "weighted": true,
+   "desc": "Trains hamstrings, which stabilise the knee, without hip-hinging like a deadlift. Slow lowering.",
+   "weeks": [
+    "2 x 12",
+    "3 x 12",
+    "3 x 12",
+    "3 x 15"
+   ]
+  },
+  {
+   "id": "stepup",
+   "name": "Low step-up (15-20 cm), left leg lead",
+   "weighted": false,
+   "desc": "Whole left foot on the box, drive up through the heel, lower for 3 sec. Do not push off the trailing foot. Start with a low box; hold dumbbells later and switch weighted to true if wanted.",
+   "weeks": [
+    "2 x 8 each",
+    "3 x 8 each",
+    "3 x 10 each",
+    "3 x 12 each"
+   ]
+  },
+  {
+   "id": "latwalk",
+   "name": "Banded lateral walk",
+   "weighted": false,
+   "desc": "Band above the knees, slight quarter-squat, step sideways without letting the knees cave in. Builds glute medius for knee alignment.",
+   "weeks": [
+    "2 x 10 steps each way",
+    "3 x 10 steps each way",
+    "3 x 12 steps each way",
+    "3 x 15 steps each way"
+   ]
+  },
+  {
+   "id": "calf",
+   "name": "Standing calf raise (machine)",
+   "weighted": true,
+   "desc": "Full range, 1 sec pause at the top. Calves help absorb load at the knee.",
+   "weeks": [
+    "2 x 15",
+    "3 x 15",
+    "3 x 15",
+    "3 x 20"
+   ]
+  },
+  {
+   "id": "plank",
+   "name": "Front plank",
+   "weighted": false,
+   "desc": "Forearms and toes, straight line, ribs down, glutes squeezed. Core endurance protects the lower back.",
+   "weeks": [
+    "2 x 20 sec",
+    "3 x 20 sec",
+    "3 x 30 sec",
+    "3 x 40 sec"
+   ]
+  },
+  {
+   "id": "row_wu",
+   "name": "Rowing machine warm-up",
+   "weighted": false,
+   "desc": "Easy pace, drive with the legs through a short knee range, upright torso. If the back feels tight, use the bike instead.",
+   "weeks": [
+    "5 min easy",
+    "5 min easy",
+    "5 min easy",
+    "5 min easy"
+   ]
+  },
+  {
+   "id": "csrow",
+   "name": "Chest-supported row machine",
+   "weighted": true,
+   "desc": "Chest on the pad removes lower-back load. Pull elbows back, squeeze shoulder blades, control the return.",
+   "weeks": [
+    "2 x 12",
+    "3 x 12",
+    "3 x 12",
+    "3 x 12"
+   ]
+  },
+  {
+   "id": "incpress",
+   "name": "Incline dumbbell press (back supported)",
+   "weighted": true,
+   "desc": "Bench at 30 degrees, back flat on the pad, press up and slightly together.",
+   "weeks": [
+    "2 x 10",
+    "3 x 10",
+    "3 x 10",
+    "3 x 12"
+   ]
+  },
+  {
+   "id": "lat",
+   "name": "Lat pulldown",
+   "weighted": true,
+   "desc": "Sit tall, pull the bar to upper chest, elbows down, do not lean back far.",
+   "weeks": [
+    "2 x 12",
+    "3 x 12",
+    "3 x 12",
+    "3 x 12"
+   ]
+  },
+  {
+   "id": "sp",
+   "name": "Seated dumbbell shoulder press (back supported)",
+   "weighted": true,
+   "desc": "Use a back pad, do not arch. Press overhead and lower under control.",
+   "weeks": [
+    "2 x 10",
+    "3 x 10",
+    "3 x 10",
+    "3 x 12"
+   ]
+  },
+  {
+   "id": "face",
+   "name": "Cable face pull",
+   "weighted": true,
+   "desc": "Rope at face height, pull toward the face with elbows high, squeeze rear shoulders.",
+   "weeks": [
+    "2 x 15",
+    "3 x 15",
+    "3 x 15",
+    "3 x 15"
+   ]
+  },
+  {
+   "id": "tri",
+   "name": "Cable triceps pushdown",
+   "weighted": true,
+   "desc": "Elbows tucked at sides, extend fully, control up.",
+   "weeks": [
+    "2 x 12",
+    "2 x 12",
+    "3 x 12",
+    "3 x 12"
+   ]
+  },
+  {
+   "id": "curl",
+   "name": "Incline dumbbell curl",
+   "weighted": true,
+   "desc": "Back on an incline bench, arms hang behind the body, curl without swinging.",
+   "weeks": [
+    "2 x 12",
+    "2 x 12",
+    "3 x 12",
+    "3 x 12"
+   ]
+  },
+  {
+   "id": "deadbug",
+   "name": "Dead bug",
+   "weighted": false,
+   "desc": "On your back, arms up, knees at 90. Lower opposite arm and leg while the lower back stays pressed to the floor.",
+   "weeks": [
+    "2 x 8 each",
+    "3 x 8 each",
+    "3 x 10 each",
+    "3 x 12 each"
+   ]
+  },
+  {
+   "id": "sideplank",
+   "name": "Side plank (each side)",
+   "weighted": false,
+   "desc": "Forearm under shoulder, hips lifted in a line. Bend the knees if needed.",
+   "weeks": [
+    "2 x 15 sec",
+    "3 x 15 sec",
+    "3 x 20 sec",
+    "3 x 30 sec"
+   ]
+  },
+  {
+   "id": "pallof",
+   "name": "Pallof press (cable)",
+   "weighted": true,
+   "desc": "Side-on to a cable at chest height, press the handle straight out and resist rotation.",
+   "weeks": [
+    "2 x 10 each",
+    "3 x 10 each",
+    "3 x 12 each",
+    "3 x 12 each"
+   ]
+  },
+  {
+   "id": "abd",
+   "name": "Machine hip abduction",
+   "weighted": true,
+   "desc": "Sit upright, push pads out slowly, control the return. Builds outer hip muscles that steady the knee.",
+   "weeks": [
+    "2 x 15",
+    "3 x 15",
+    "3 x 15",
+    "3 x 20"
+   ]
+  },
+  {
+   "id": "bridge",
+   "name": "Glute bridge",
+   "weighted": false,
+   "desc": "Feet flat, push through heels, lift until shoulders, hips and knees align; do not over-arch. Squeeze glutes 1-2 sec.",
+   "weeks": [
+    "2 x 12",
+    "3 x 12",
+    "3 x 15",
+    "3 x 15"
+   ]
+  },
+  {
+   "id": "split",
+   "name": "Rear-foot-elevated split squat (hold support)",
+   "weighted": false,
+   "desc": "Back foot on a bench, lower with torso upright and front knee over the toes. Hold a rack for balance. Left side first; start shallow.",
+   "weeks": [
+    "2 x 6 each",
+    "2 x 8 each",
+    "3 x 8 each",
+    "3 x 10 each"
+   ]
+  },
+  {
+   "id": "splp",
+   "name": "Single-leg leg press (left leg emphasis)",
+   "weighted": true,
+   "desc": "One foot on the plate, press to near full extension, lower to about 90 degrees. Do left first, match reps on the right.",
+   "weeks": [
+    "2 x 10 each",
+    "3 x 10 each",
+    "3 x 12 each",
+    "3 x 12 each"
+   ]
+  },
+  {
+   "id": "tke",
+   "name": "Band terminal knee extension",
+   "weighted": false,
+   "desc": "Band behind the knee anchored to a rack, knee slightly bent, straighten fully and squeeze the quad.",
+   "weeks": [
+    "2 x 15",
+    "3 x 15",
+    "3 x 15",
+    "3 x 20"
+   ]
+  },
+  {
+   "id": "scrow",
+   "name": "Seated cable row",
+   "weighted": true,
+   "desc": "Sit tall, neutral spine, pull to the belly, squeeze shoulder blades, do not rock.",
+   "weeks": [
+    "2 x 12",
+    "3 x 12",
+    "3 x 12",
+    "3 x 12"
+   ]
+  },
+  {
+   "id": "wallsit",
+   "name": "Wall sit (knees ~60-70 deg)",
+   "weighted": false,
+   "desc": "Back flat on the wall, thighs about 60-70 degrees from straight. Gentle static quad hold.",
+   "weeks": [
+    "2 x 20 sec",
+    "3 x 20 sec",
+    "3 x 30 sec",
+    "3 x 40 sec"
+   ]
+  },
+  {
+   "id": "bird",
+   "name": "Bird dog",
+   "weighted": false,
+   "desc": "On hands and knees, extend opposite arm and leg, pelvis level.",
+   "weeks": [
+    "2 x 8 each",
+    "3 x 8 each",
+    "3 x 10 each",
+    "3 x 12 each"
+   ]
+  },
+  {
+   "id": "farmer",
+   "name": "Dumbbell farmer carry",
+   "weighted": true,
+   "desc": "Dumbbells at your sides, stand tall with ribs down, walk steadily. Enter the weight of each dumbbell.",
+   "weeks": [
+    "2 x 30 sec",
+    "3 x 30 sec",
+    "3 x 40 sec",
+    "3 x 45 sec"
+   ]
+  },
+  {
+   "id": "zone2",
+   "name": "Steady bike, Zone 2",
+   "weighted": false,
+   "desc": "Conversational pace (about 60-70% max heart rate). Burns calories with no knee impact.",
+   "weeks": [
+    "30 min",
+    "35 min",
+    "40 min",
+    "45 min"
+   ]
+  },
+  {
+   "id": "intervals",
+   "name": "Intervals: bike or cross-trainer (1 min hard / 2 easy)",
+   "weighted": false,
+   "desc": "After a 3-5 min warm-up, alternate 1 min hard (effort 7-8/10) with 2 min easy. Keep resistance moderate.",
+   "weeks": [
+    "20 min",
+    "24 min",
+    "27 min",
+    "30 min"
+   ]
+  },
+  {
+   "id": "mob",
+   "name": "Mobility: quad, hip flexor, calf stretches",
+   "weighted": false,
+   "desc": "Hold each stretch 30 sec per side.",
+   "weeks": [
+    "5 min",
+    "5 min",
+    "5 min",
+    "5 min"
+   ]
+  },
+  {
+   "id": "incline",
+   "name": "Incline treadmill walk 5-8% (or swim / elliptical)",
+   "weighted": false,
+   "desc": "Brisk incline walk, no handrails, short stride. Swim or elliptical alternative.",
+   "weeks": [
+    "40 min",
+    "45 min",
+    "50 min",
+    "60 min"
+   ]
+  },
+  {
+   "id": "walk",
+   "name": "Easy walk + mobility",
+   "weighted": false,
+   "desc": "Low-intensity walk plus foam rolling quads/glutes and hip stretches. Do not roll on the kneecap.",
+   "weeks": [
+    "20 min",
+    "25 min",
+    "30 min",
+    "30 min"
+   ]
+  }
+ ],
+ "days": [
+  {
+   "day": "Monday",
+   "session": "Strength A: Lower / Knee",
+   "exercises": [
+    "bike_wu",
+    "goblet",
+    "legpress",
+    "legext",
+    "legcurl",
+    "stepup",
+    "latwalk",
+    "calf",
+    "plank"
+   ]
+  },
+  {
+   "day": "Tuesday",
+   "session": "Cardio: Steady",
+   "exercises": [
+    "zone2"
+   ]
+  },
+  {
+   "day": "Wednesday",
+   "session": "Strength B: Upper / Core",
+   "exercises": [
+    "row_wu",
+    "csrow",
+    "incpress",
+    "lat",
+    "sp",
+    "face",
+    "tri",
+    "curl",
+    "deadbug",
+    "sideplank",
+    "pallof"
+   ]
+  },
+  {
+   "day": "Thursday",
+   "session": "Cardio: Intervals + Mobility",
+   "exercises": [
+    "intervals",
+    "mob"
+   ]
+  },
+  {
+   "day": "Friday",
+   "session": "Strength C: Hips / Knee Stability",
+   "exercises": [
+    "bike_wu",
+    "abd",
+    "bridge",
+    "split",
+    "splp",
+    "tke",
+    "scrow",
+    "wallsit",
+    "bird",
+    "farmer"
+   ]
+  },
+  {
+   "day": "Saturday",
+   "session": "Cardio: Long Low-Impact",
+   "exercises": [
+    "incline"
+   ]
+  },
+  {
+   "day": "Sunday",
+   "session": "Active Recovery",
+   "exercises": [
+    "walk"
+   ]
+  }
+ ]
+}
